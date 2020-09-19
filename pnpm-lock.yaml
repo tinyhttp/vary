@@ -1,7 +1,7 @@
 devDependencies:
   '@types/node': 14.11.1
-  tsup: 3.6.1_typescript@4.0.2
-  typescript: 4.0.2
+  tsup: 3.7.0_typescript@4.0.3
+  typescript: 4.0.3
 lockfileVersion: 5.1
 packages:
   /@babel/code-frame/7.10.4:
@@ -109,7 +109,7 @@ packages:
   /chalk/4.1.0:
     dependencies:
       ansi-styles: 4.2.1
-      supports-color: 7.1.0
+      supports-color: 7.2.0
     dev: true
     engines:
       node: '>=10'
@@ -165,12 +165,12 @@ packages:
     dev: true
     resolution:
       integrity: sha1-2Klr13/Wjfd5OnMDajug1UBdR3s=
-  /esbuild/0.6.27:
+  /esbuild/0.6.34:
     dev: true
     hasBin: true
     requiresBuild: true
     resolution:
-      integrity: sha512-oonxxg/ExZt9tYMPnEUDYAN7YefEPsC21pXez5rwKcCPAF6gzMuxLvAdbU4dCT8Tp0I2avODz61vrGyu5wR/uA==
+      integrity: sha512-InRdL/Q96pUucPqovJzvuLhquZr6jOn81FDVwFjCKz1rYKIm9OdOC+7Fs4vr6x48vKBl5LzKgtjU39BUpO636A==
   /escape-string-regexp/1.0.5:
     dev: true
     engines:
@@ -357,19 +357,19 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-qYg9KP24dD5qka9J47d0aVky0N+b4fTU89LN9iDnjB5waksiC49rvMB0PrUJQGoTmH50XPiqOvAjDfaijGxYZw==
-  /rollup-plugin-dts/1.4.11_rollup@2.26.5+typescript@4.0.2:
+  /rollup-plugin-dts/1.4.13_rollup@2.27.1+typescript@4.0.3:
     dependencies:
-      rollup: 2.26.5
-      typescript: 4.0.2
+      rollup: 2.27.1
+      typescript: 4.0.3
     dev: true
     optionalDependencies:
       '@babel/code-frame': 7.10.4
     peerDependencies:
-      rollup: ^2.26.4
+      rollup: ^2.26.8
       typescript: ^4.0.2
     resolution:
-      integrity: sha512-yiScAMKgwH77b44a/IFGgjLsmwSlNfQhEM+eCb2uMrupQMPE1n/12wrnT431+v1u6wYMF1XuHqldh+v/7mTvYA==
-  /rollup/2.26.5:
+      integrity: sha512-7mxoQ6PcmCkBE5ZhrjGDL4k42XLy8BkSqpiRi1MipwiGs+7lwi4mQkp2afX+OzzLjJp/TGM8llfe8uayIUhPEw==
+  /rollup/2.27.1:
     dev: true
     engines:
       node: '>=10.0.0'
@@ -377,7 +377,7 @@ packages:
     optionalDependencies:
       fsevents: 2.1.3
     resolution:
-      integrity: sha512-rCyFG3ZtQdnn9YwfuAVH0l/Om34BdO5lwCA0W6Hq+bNB21dVEBbCRxhaHOmu1G7OBFDWytbzAC104u7rxHwGjA==
+      integrity: sha512-GiWHQvnmMgBktSpY/1+nrGpwPsTw4b9P28og2uedfeq4JZ16rzAmnQ5Pm/E0/BEmDNia1ZbY7+qu3nBgNa19Hg==
   /sucrase/3.15.0:
     dependencies:
       commander: 4.1.1
@@ -401,14 +401,14 @@ packages:
     optional: true
     resolution:
       integrity: sha512-QjVjwdXIt408MIiAqCX4oUKsgU2EqAGzs2Ppkm4aQYbjm+ZEWEcW4SfFNTr4uMNZma0ey4f5lgLrkB0aX0QMow==
-  /supports-color/7.1.0:
+  /supports-color/7.2.0:
     dependencies:
       has-flag: 4.0.0
     dev: true
     engines:
       node: '>=8'
     resolution:
-      integrity: sha512-oRSIpR8pxT1Wr2FquTNnGet79b3BWljqOuoW/h4oBhxJ/HUbX5nX6JSruTkvXDCFMwDPvsaTTbvMLKZWSy0R5g==
+      integrity: sha512-qpCAvRl9stuOHveKsn7HncJRvv501qIacKzQlO/+Lwxc9+0q2wLyv4Dfvt80/DPn2pqOBsJdDiogXGR9+OvwRw==
   /thenify-all/1.6.0:
     dependencies:
       thenify: 3.3.1
@@ -435,35 +435,35 @@ packages:
     dev: true
     resolution:
       integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==
-  /tsup/3.6.1_typescript@4.0.2:
+  /tsup/3.7.0_typescript@4.0.3:
     dependencies:
       cac: 6.6.1
       chalk: 4.1.0
       chokidar: 3.4.2
-      esbuild: 0.6.27
+      esbuild: 0.6.34
       joycon: 2.2.5
       resolve-from: 5.0.0
-      rollup: 2.26.5
-      rollup-plugin-dts: 1.4.11_rollup@2.26.5+typescript@4.0.2
+      rollup: 2.27.1
+      rollup-plugin-dts: 1.4.13_rollup@2.27.1+typescript@4.0.3
       sucrase: 3.15.0
     dev: true
     hasBin: true
     peerDependencies:
       typescript: '*'
     resolution:
-      integrity: sha512-RBd/0ZHn/o8S1zKRWJzqr6R4AiulMxYD9IZvCkNIHGQ+olATceJ+UK0ubZD4q37UWxbQPL/96/aHy2ZF7IpzNQ==
-  /typescript/4.0.2:
+      integrity: sha512-OV6/mpHL/5W8ba1W1qXPpOiWQzELrutxfM3LTCAi2WUPALaM4RirH65G6V4n9bhJ+6MCRZ2TMuAmz9SOJKuIwg==
+  /typescript/4.0.3:
     dev: true
     engines:
       node: '>=4.2.0'
     hasBin: true
     resolution:
-      integrity: sha512-e4ERvRV2wb+rRZ/IQeb3jm2VxBsirQLpQhdxplZ2MEzGvDkkMmPglecnNDfSUBivMjP93vRbngYYDQqQ/78bcQ==
+      integrity: sha512-tEu6DGxGgRJPb/mVPIZ48e69xCn2yRmCgYmDugAVwmJ6o+0u1RI18eO7E7WBTLYLaEVVOhwQmcdhQHweux/WPg==
   /wrappy/1.0.2:
     dev: true
     resolution:
       integrity: sha1-tSQ9jz7BqjXxNkYFvA0QNuMKtp8=
 specifiers:
   '@types/node': ^14.11.1
-  tsup: ^3.6.1
-  typescript: ^4.0.2
+  tsup: ^3.7.0
+  typescript: ^4.0.3
