@@ -89,8 +89,8 @@ export function vary(res: Response, field: string) {
   }
 
   // get existing header
-  var val = res.getHeader('Vary') || ''
-  var header = Array.isArray(val) ? val.join(', ') : String(val)
+  let val = res.getHeader('Vary') || ''
+  const header = Array.isArray(val) ? val.join(', ') : String(val)
 
   // set new header
   if ((val = append(header, field))) {
