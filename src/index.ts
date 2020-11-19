@@ -82,7 +82,7 @@ export function append(header: string, field: string) {
 /**
  * Mark that a request is varied on a header field.
  */
-export function vary(res: Response, field: string) {
+export function vary(res: Pick<Response, 'getHeader' | 'setHeader'>, field: string) {
   if (!res || !res.getHeader || !res.setHeader) {
     // quack quack
     throw new TypeError('res argument is required')
