@@ -1,6 +1,5 @@
 # es-vary
 
-[![Subscribe to twitter][twitter-image]][twitter-url]
 ![Top language][top-lang-image]
 ![Vulnerabilities][snyk-image]
 [![Version][npm-v-image]][npm-url]
