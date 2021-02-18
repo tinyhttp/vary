@@ -1,9 +1,9 @@
 {
   "name": "es-vary",
-  "description": "vary rewrite in TypeScript with ESM and CommonJS targets",
+  "description": "vary rewrite in TypeScript with ESM targets",
   "version": "0.0.8",
   "type": "module",
-  "main": "dist/index.cjs",
+  "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "engines": {
@@ -11,15 +11,14 @@
   },
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+      "import": "./dist/index.js"
     },
     "./package.json": "./package.json",
     "./": "./"
   },
   "scripts": {
     "prepare": "pnpm build",
-    "build": "tsup src/index.ts --minify-whitespace --format cjs,esm --dts"
+    "build": "tsup src/index.ts --minify-whitespace --format esm --dts"
   },
   "repository": {
     "type": "git",
