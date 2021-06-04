@@ -3,7 +3,6 @@
 ![Vulnerabilities][snyk-image]
 [![Version][npm-v-image]][npm-url]
 [![Node Version][node-version-image]][node-version-url]
-![Last commit][last-commit-image]
 
 > [`vary`](https://github.com/jshttp/vary) rewrite in TypeScript with ESM and CommonJS targets
 
@@ -73,7 +72,6 @@ MIT © [v1rtl](https://v1rtl.site)
 
 [node-version-image]: https://img.shields.io/node/v/es-vary.svg?style=flat-square
 [node-version-url]: https://nodejs.org
-[top-lang-image]: https://img.shields.io/github/languages/top/talentlessguy/es-vary.svg?style=flat-square
 [snyk-image]: https://img.shields.io/snyk/vulnerabilities/npm/es-vary.svg?style=flat-square
 [npm-v-image]: https://img.shields.io/npm/v/es-vary.svg?style=flat-square
 [npm-url]: https://www.npmjs.com/package/es-vary
