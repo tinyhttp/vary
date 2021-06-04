@@ -1,6 +1,5 @@
 # es-vary
 
-![Top language][top-lang-image]
 ![Vulnerabilities][snyk-image]
 [![Version][npm-v-image]][npm-url]
 [![Node Version][node-version-image]][node-version-url]
@@ -52,7 +51,7 @@ append('Accept, User-Agent', 'Origin')
 ## Examples
 
 ```ts
-import { createServer } from 'http
+import { createServer } from 'http'
 import { vary } from 'es-vary'
 
 createServer((req, res) => {
@@ -78,4 +77,3 @@ MIT © [v1rtl](https://v1rtl.site)
 [snyk-image]: https://img.shields.io/snyk/vulnerabilities/npm/es-vary.svg?style=flat-square
 [npm-v-image]: https://img.shields.io/npm/v/es-vary.svg?style=flat-square
 [npm-url]: https://www.npmjs.com/package/es-vary
-[last-commit-image]: https://img.shields.io/github/last-commit/talentlessguy/es-vary.svg?style=flat-square
