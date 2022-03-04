@@ -42,15 +42,13 @@ function parse(header: string) {
   return list
 }
 
-export function append(header: string, field: string) {
+export function append(header: string, field: string | string[]) {
   // get fields array
   const fields = !Array.isArray(field) ? parse(String(field)) : field
 
   // assert on invalid field names
   for (const field of fields) {
-    if (!FIELD_NAME_REGEXP.test(field)) {
-      throw new TypeError('field argument contains an invalid header name')
-    }
+    if (!FIELD_NAME_REGEXP.test(field)) throw new TypeError('field argument contains an invalid header name')
   }
 
   // existing, unspecified vary
@@ -82,12 +80,7 @@ export function append(header: string, field: string) {
 /**
  * Mark that a request is varied on a header field.
  */
-export function vary(res: Pick<Response, 'getHeader' | 'setHeader'>, field: string) {
-  if (!res || !res.getHeader || !res.setHeader) {
-    // quack quack
-    throw new TypeError('res argument is required')
-  }
-
+export function vary(res: Response, field: string | string[]) {
   // get existing header
   let val = res.getHeader('Vary') || ''
   const header = Array.isArray(val) ? val.join(', ') : String(val)

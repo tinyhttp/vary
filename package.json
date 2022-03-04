@@ -10,7 +10,10 @@
   },
   "scripts": {
     "prepare": "pnpm build",
-    "build": "tsup src/index.ts --minify-whitespace --format esm --dts"
+    "build": "tsup src/index.ts --minify-whitespace --format esm --dts",
+    "test": "tsm node_modules/uvu/bin.js test",
+    "test:coverage": "c8 --include=src pnpm test",
+    "test:report": "c8 report --reporter=text-lcov > coverage.lcov"
   },
   "repository": {
     "type": "git",
@@ -24,7 +27,13 @@
     "nodejs",
     "javascript"
   ],
-  "author": "",
+  "files": [
+    "dist"
+  ],
+  "directories": {
+    "test": "test"
+  },
+  "author": "v1rtl",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/talentlessguy/es-vary/issues"
@@ -32,7 +41,10 @@
   "homepage": "https://github.com/talentlessguy/es-vary#readme",
   "devDependencies": {
     "@types/node": "^15.6.0",
+    "c8": "^7.11.0",
+    "tsm": "^2.2.1",
     "tsup": "^4.11.0",
-    "typescript": "^4.2.4"
+    "typescript": "^4.2.4",
+    "uvu": "^0.5.3"
   }
 }
