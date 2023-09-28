@@ -48,7 +48,7 @@ append('Accept, User-Agent', 'Origin')
 ## Examples
 
 ```ts
-import { createServer } from 'http'
+import { createServer } from 'node:http'
 import { vary } from '@tinyhttp/vary'
 
 createServer((req, res) => {
