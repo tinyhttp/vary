@@ -30,7 +30,7 @@
   "files": [
     "dist"
   ],
-  "author": "v1rtl",
+  "author": "v1rtl <hi@v1rtl.site>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/tinyhttp/vary/issues"
@@ -45,5 +45,8 @@
     "tsup": "^7.2.0",
     "typescript": "^5.2.2",
     "uvu": "^0.5.6"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
