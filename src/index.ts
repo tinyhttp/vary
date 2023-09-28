@@ -1,4 +1,4 @@
-import { ServerResponse as Response } from 'http'
+import { ServerResponse as Response } from 'node:http'
 
 /**
  * RegExp to match field-name in RFC 7230 sec 3.2
@@ -15,11 +15,11 @@ const FIELD_NAME_REGEXP = /^[!#$%&'*+\-.^_`|~0-9A-Za-z]+$/
 
 function parse(header: string) {
   let end = 0
-  let list = []
+  const list: string[] = []
   let start = 0
 
   // gather tokens
-  for (var i = 0, len = header.length; i < len; i++) {
+  for (let i = 0, len = header.length; i < len; i++) {
     switch (header.charCodeAt(i)) {
       case 0x20 /*   */:
         if (start === end) {
@@ -48,7 +48,8 @@ export function append(header: string, field: string | string[]) {
 
   // assert on invalid field names
   for (const field of fields) {
-    if (!FIELD_NAME_REGEXP.test(field)) throw new TypeError('field argument contains an invalid header name')
+    if (!FIELD_NAME_REGEXP.test(field))
+      throw new TypeError('field argument contains an invalid header name')
   }
 
   // existing, unspecified vary

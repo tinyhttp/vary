@@ -1,8 +1,6 @@
-# es-vary
+# @tinyhttp/vary
 
-![Vulnerabilities][snyk-image]
-[![Version][npm-v-image]][npm-url]
-[![Node Version][node-version-image]][node-version-url]
+[![Version][v-badge-url]][npm-url] [![Downloads][dl-badge-url]][npm-url] [![GitHub Workflow Status][gh-actions-img]][github-actions] [![Codecov][cov-badge-url]][cov-url]
 
 > [`vary`](https://github.com/jshttp/vary) rewrite in TypeScript with ESM and CommonJS targets
 
@@ -11,13 +9,13 @@ Manipulate the HTTP Vary header
 ## Install
 
 ```sh
-pnpm i es-vary
+pnpm i @tinyhttp/vary
 ```
 
 ## API
 
 ```ts
-import { vary, append } from 'es-vary'
+import { vary, append } from '@tinyhttp/vary'
 ```
 
 ### `vary(res, field)`
@@ -51,7 +49,7 @@ append('Accept, User-Agent', 'Origin')
 
 ```ts
 import { createServer } from 'http'
-import { vary } from 'es-vary'
+import { vary } from '@tinyhttp/vary'
 
 createServer((req, res) => {
   // about to user-agent sniff
@@ -70,8 +68,10 @@ createServer((req, res) => {
 
 MIT © [v1rtl](https://v1rtl.site)
 
-[node-version-image]: https://img.shields.io/node/v/es-vary.svg?style=flat-square
-[node-version-url]: https://nodejs.org
-[snyk-image]: https://img.shields.io/snyk/vulnerabilities/npm/es-vary.svg?style=flat-square
-[npm-v-image]: https://img.shields.io/npm/v/es-vary.svg?style=flat-square
-[npm-url]: https://www.npmjs.com/package/es-vary
+[v-badge-url]: https://img.shields.io/npm/v/@tinyhttp/vary.svg?style=for-the-badge&color=FF69B4&label=&logo=npm
+[npm-url]: https://www.npmjs.com/package/@tinyhttp/vary
+[cov-badge-url]: https://img.shields.io/coveralls/github/tinyhttp/vary?style=for-the-badge&color=FF69B4
+[cov-url]: https://coveralls.io/github/tinyhttp/vary
+[dl-badge-url]: https://img.shields.io/npm/dt/@tinyhttp/vary?style=for-the-badge&color=FF69B4
+[github-actions]: https://github.com/tinyhttp/vary/actions
+[gh-actions-img]: https://img.shields.io/github/actions/workflow/status/tinyhttp/vary/main.yml?branch=master&style=for-the-badge&color=FF69B4&label=&logo=github

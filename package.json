@@ -1,6 +1,6 @@
 {
-  "name": "es-vary",
-  "description": "vary rewrite in TypeScript with ESM and CommonJS targets",
+  "name": "@tinyhttp/vary",
+  "description": "vary rewrite in TypeScript and ESM",
   "version": "0.1.2",
   "type": "module",
   "exports": "./dist/index.js",
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/talentlessguy/es-vary.git"
+    "url": "git+https://github.com/tinyhttp/vary.git"
   },
   "keywords": [
     "http",
@@ -30,21 +30,20 @@
   "files": [
     "dist"
   ],
-  "directories": {
-    "test": "test"
-  },
   "author": "v1rtl",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/talentlessguy/es-vary/issues"
+    "url": "https://github.com/tinyhttp/vary/issues"
   },
-  "homepage": "https://github.com/talentlessguy/es-vary#readme",
+  "homepage": "https://github.com/tinyhttp/vary#readme",
   "devDependencies": {
-    "@types/node": "^15.6.0",
-    "c8": "^7.11.0",
-    "tsm": "^2.2.1",
-    "tsup": "^4.11.0",
-    "typescript": "^4.2.4",
-    "uvu": "^0.5.3"
+    "@types/node": "^20.7.1",
+    "@typescript-eslint/eslint-plugin": "^6.7.3",
+    "@typescript-eslint/parser": "^6.7.3",
+    "c8": "^8.0.1",
+    "tsm": "^2.3.0",
+    "tsup": "^7.2.0",
+    "typescript": "^5.2.2",
+    "uvu": "^0.5.6"
   }
 }
