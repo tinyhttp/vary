@@ -1,18 +1,9 @@
 import assert from 'node:assert'
 import { IncomingMessage, ServerResponse } from 'node:http'
-import * as uvu from 'uvu'
+import { describe, it } from 'node:test'
 import { append, vary } from '../src/index.ts'
 
-function describe(
-  name: string,
-  fn: (suite: uvu.uvu.Test<uvu.Context>) => void
-) {
-  const suite = uvu.suite(name)
-  fn(suite)
-  suite.run()
-}
-
-describe('field', (it) => {
+describe('field', () => {
   it('should accept string', () => {
     assert.doesNotThrow(append.bind(null, '', 'foo'))
   })
@@ -51,7 +42,7 @@ describe('field', (it) => {
   })
 })
 
-describe('when header empty', (it) => {
+describe('when header empty', () => {
   it('should set value', () => {
     assert.strictEqual(append('', 'Origin'), 'Origin')
   })
@@ -71,7 +62,7 @@ describe('when header empty', (it) => {
   })
 })
 
-describe('when header has values', (it) => {
+describe('when header has values', () => {
   it('should set value', () => {
     assert.strictEqual(append('Accept', 'Origin'), 'Accept, Origin')
   })
@@ -96,7 +87,7 @@ describe('when header has values', (it) => {
   })
 })
 
-describe('when *', (it) => {
+describe('when *', () => {
   it('should set value', () => {
     assert.strictEqual(append('', '*'), '*')
   })
@@ -114,7 +105,7 @@ describe('when *', (it) => {
   })
 })
 
-describe('when field is string', (it) => {
+describe('when field is string', () => {
   it('should set value', () => {
     assert.strictEqual(append('', 'Accept'), 'Accept')
   })
@@ -138,7 +129,7 @@ describe('when field is string', (it) => {
   })
 })
 
-describe('when field is array', (it) => {
+describe('when field is array', () => {
   it('should set value', () => {
     assert.strictEqual(
       append('', ['Accept', 'Accept-Language']),
@@ -166,7 +157,7 @@ describe('when field is array', (it) => {
   })
 })
 
-describe('vary(res, field)', (it) => {
+describe('vary(res, field)', () => {
   const createRes = () => new ServerResponse(new IncomingMessage(null as never))
 
   it('should set Vary header', () => {
