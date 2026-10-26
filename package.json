@@ -10,7 +10,10 @@
   },
   "scripts": {
     "prepare": "pnpm build",
-    "build": "tsup src/index.ts --minify-whitespace --format esm --dts",
+    "build": "tsup src/index.ts --minify-whitespace --format esm && tsc -p tsconfig.build.json",
+    "typecheck": "tsc",
+    "lint": "biome check .",
+    "format": "biome check --write .",
     "test": "tsm node_modules/uvu/bin.js test",
     "test:coverage": "c8 --include=src pnpm test",
     "test:report": "c8 report --reporter=text-lcov > coverage.lcov"
@@ -37,16 +40,21 @@
   },
   "homepage": "https://github.com/tinyhttp/vary#readme",
   "devDependencies": {
-    "@types/node": "^20.7.1",
-    "@typescript-eslint/eslint-plugin": "^6.7.3",
-    "@typescript-eslint/parser": "^6.7.3",
-    "c8": "^8.0.1",
+    "@biomejs/biome": "^2.6.3",
+    "@types/node": "^26.6.5",
+    "c8": "^12.0.0",
     "tsm": "^2.3.0",
-    "tsup": "^7.2.0",
-    "typescript": "^5.2.2",
+    "tsup": "^9.0.0",
+    "typescript": "^7.0.2",
     "uvu": "^0.5.6"
   },
   "publishConfig": {
     "access": "public"
+  },
+  "packageManager": "pnpm@10.28.0",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
   }
 }

@@ -1,11 +1,16 @@
 {
-  "include": ["src"],
+  "include": ["src", "test"],
   "compilerOptions": {
-    "declaration": true,
-    "allowSyntheticDefaultImports": true,
-    "preserveSymlinks": true,
     "target": "ESNext",
-    "module": "ESNext",
-    "moduleResolution": "Node"
+    "lib": ["ESNext"],
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "types": ["node"],
+    "strict": true,
+    "declaration": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "verbatimModuleSyntax": true,
+    "allowImportingTsExtensions": true
   }
 }
