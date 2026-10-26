@@ -1,4 +1,4 @@
-import { ServerResponse as Response } from 'node:http'
+import type { ServerResponse as Response } from 'node:http'
 
 /**
  * RegExp to match field-name in RFC 7230 sec 3.2
@@ -10,24 +10,21 @@ import { ServerResponse as Response } from 'node:http'
  *               / DIGIT / ALPHA
  *               ; any VCHAR, except delimiters
  */
-
 const FIELD_NAME_REGEXP = /^[!#$%&'*+\-.^_`|~0-9A-Za-z]+$/
 
-function parse(header: string) {
-  let end = 0
+function parse(header: string): string[] {
   const list: string[] = []
   let start = 0
+  let end = 0
 
   // gather tokens
-  for (let i = 0, len = header.length; i < len; i++) {
+  for (let i = 0; i < header.length; i++) {
     switch (header.charCodeAt(i)) {
       case 0x20 /*   */:
-        if (start === end) {
-          start = end = i + 1
-        }
+        if (start === end) start = end = i + 1
         break
       case 0x2c /* , */:
-        list.push(header.substring(start, end))
+        list.push(header.slice(start, end))
         start = end = i + 1
         break
       default:
@@ -37,57 +34,53 @@ function parse(header: string) {
   }
 
   // final token
-  list.push(header.substring(start, end))
+  list.push(header.slice(start, end))
 
   return list
 }
 
-export function append(header: string, field: string | string[]) {
+export function append(header: string, field: string | string[]): string {
   // get fields array
-  const fields = !Array.isArray(field) ? parse(String(field)) : field
+  const fields = Array.isArray(field) ? field : parse(String(field))
 
   // assert on invalid field names
-  for (const field of fields) {
-    if (!FIELD_NAME_REGEXP.test(field))
-      throw new TypeError('field argument contains an invalid header name')
+  if (!fields.every((f) => FIELD_NAME_REGEXP.test(f))) {
+    throw new TypeError('field argument contains an invalid header name')
   }
 
   // existing, unspecified vary
-  if (header === '*') {
-    return header
-  }
+  if (header === '*') return header
 
   // enumerate current values
-  let val = header
-  const vals = parse(header.toLowerCase())
+  const vals = new Set(parse(header.toLowerCase()))
 
   // unspecified vary
-  if (fields.indexOf('*') !== -1 || vals.indexOf('*') !== -1) {
-    return '*'
-  }
+  if (fields.includes('*') || vals.has('*')) return '*'
 
-  for (const field of fields) {
-    const fld = field.toLowerCase()
+  let val = header
+
+  for (const f of fields) {
+    const fld = f.toLowerCase()
 
     // append value (case-preserving)
-    if (vals.indexOf(fld) === -1) {
-      vals.push(fld)
-      val = val ? val + ', ' + field : field
+    if (!vals.has(fld)) {
+      vals.add(fld)
+      val = val ? `${val}, ${f}` : f
     }
   }
 
   return val
 }
+
 /**
  * Mark that a request is varied on a header field.
  */
-export function vary(res: Response, field: string | string[]) {
+export function vary(res: Response, field: string | string[]): void {
   // get existing header
-  let val = res.getHeader('Vary') || ''
-  const header = Array.isArray(val) ? val.join(', ') : String(val)
+  const current = res.getHeader('Vary') || ''
+  const header = Array.isArray(current) ? current.join(', ') : String(current)
 
   // set new header
-  if ((val = append(header, field))) {
-    res.setHeader('Vary', val)
-  }
+  const val = append(header, field)
+  if (val) res.setHeader('Vary', val)
 }
